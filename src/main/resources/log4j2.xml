@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="ERROR">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} [%t] %-5level - [%logger{1} - %M] %msg%n"/>
+        </Console>
+
+        <RollingRandomAccessFile name="rollingRandomAccessFileInfo" fileName="logs/QASMSOHInfo.log"
+                                 filePattern="logs/$${date:yyyy-MM}/app-%d{yyyy-MM-dd-HH}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="6" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="rollingRandomAccessFileError" fileName="logs/QASMSOHError.log"
+                                 filePattern="logs/$${date:yyyy-MM}/app-%d{yyyy-MM-dd-HH}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="6" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
+        </RollingRandomAccessFile>
+    </appenders>
+
+    <loggers>
+        <root level="INFO">
+            <appender-ref ref="Console"/>
+        </root>
+        <logger name="info" level="DEBUG" additivity="false">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="rollingRandomAccessFileInfo"/>
+        </logger>
+        <logger name="error" level="INFO" additivity="false">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="rollingRandomAccessFileError"/>
+        </logger>
+    </loggers>
+
+</configuration>
