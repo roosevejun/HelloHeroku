@@ -24,7 +24,7 @@
             <groupId>org.jboss.spec</groupId>
             <artifactId>jboss-javaee-6.0</artifactId>
             <version>3.0.2.Final</version>
-            <scope>provided</scope>
+            <!--<scope>provided</scope>-->
             <type>pom</type>
         </dependency>
         <dependency>
@@ -145,6 +145,13 @@
             <version>1.4.7</version>
         </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>jboss-repo</id>
+            <name>jboss-repo</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases</url>
+        </repository>
+    </repositories>
     <build>
         <plugins>
             <plugin>
