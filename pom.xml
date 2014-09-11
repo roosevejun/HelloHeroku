@@ -168,7 +168,17 @@
         <dependency>
             <groupId>com.github.usc</groupId>
             <artifactId>wechat-mp-sdk</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.2.1</version>
         </dependency>
     </dependencies>
     <repositories>
@@ -176,6 +186,13 @@
             <id>jboss-repo</id>
             <name>jboss-repo</name>
             <url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases</url>
+        </repository>
+        <repository>
+            <id>roosevejun-releases</id>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <url>https://raw.github.com/roosevejun/mvn-repository/master/releases</url>
         </repository>
     </repositories>
     <build>
