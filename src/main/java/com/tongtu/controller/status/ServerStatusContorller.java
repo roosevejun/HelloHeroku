@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import org.usc.wechat.mp.sdk.util.ReplyUtil;
 
 /**
  * 项目名称：
@@ -22,5 +24,10 @@ public class ServerStatusContorller {
     @ResponseBody
     public Boolean serverStatus() {
         return Boolean.TRUE;
+    }
+
+    @RequestMapping(value = "/mobileWelcome", method = RequestMethod.GET)
+   public ModelAndView mobileWelcome(){
+        return new ModelAndView("result", "result", ReplyUtil.getDummyTextReplyDetailWarpper());
     }
 }
