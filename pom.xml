@@ -15,11 +15,32 @@
         <hibernate.version>4.3.4.Final</hibernate.version>
         <spring.data.jpa.version>1.7.0.RELEASE</spring.data.jpa.version>
         <spring.data.rest.version>2.2.0.RELEASE</spring.data.rest.version>
+        <log4j.version>2.0.2</log4j.version>
         <druid.version>1.0.5</druid.version>
         <jackson.databind-version>2.3.3</jackson.databind-version>
         <jackson.core.version>1.9.13</jackson.core.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-web</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-jcl</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.jboss.spec</groupId>
             <artifactId>jboss-javaee-6.0</artifactId>
@@ -143,6 +164,11 @@
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
             <version>1.4.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.usc</groupId>
+            <artifactId>wechat-mp-sdk</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
     <repositories>
