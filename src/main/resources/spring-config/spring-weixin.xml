@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util" xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+    <task:annotation-driven/>
+    <context:property-placeholder location="classpath:weixin.properties" ignore-unresolvable="true"/>
+    <bean id="license" class="org.usc.wechat.mp.sdk.vo.token.License">
+        <constructor-arg index="0" value="${app}"></constructor-arg>
+        <constructor-arg index="1" value="${appId}"></constructor-arg>
+        <constructor-arg index="2" value="${appSecret}"></constructor-arg>
+    </bean>
+    <util:constant id="clickMenuEnum" static-field="org.usc.wechat.mp.sdk.vo.menu.MenuType.CLICK"/>
+    <util:constant id="viewMenuEnum" static-field="org.usc.wechat.mp.sdk.vo.menu.MenuType.VIEW"/>
+    <util:list id="querySubMenuInfos" value-type="org.usc.wechat.mp.sdk.vo.menu.SingleMenuInfo">
+        <bean factory-bean="clickMenuEnum" factory-method="buildSingleMenuInfo">
+            <constructor-arg index="0" value="成绩查询"></constructor-arg>
+            <constructor-arg index="1"
+                             value="http://zjz.mot.gov.cn/rwqss/public/queryVExamSupeChargeListInit.shtml"></constructor-arg>
+        </bean>
+        <bean factory-bean="clickMenuEnum" factory-method="buildSingleMenuInfo">
+            <constructor-arg index="0" value="项目查询"></constructor-arg>
+            <constructor-arg index="1" value="http://zjz.mot.gov.cn/rwqss/proj/projectQuery.shtml"></constructor-arg>
+        </bean>
+        <bean factory-bean="clickMenuEnum" factory-method="buildSingleMenuInfo">
+            <constructor-arg index="0" value="注册证书查询"></constructor-arg>
+            <constructor-arg index="1" value="http://219.143.235.78:8080/khglui/"></constructor-arg>
+        </bean>
+        <bean factory-bean="viewMenuEnum" factory-method="buildSingleMenuInfo">
+            <constructor-arg index="0" value="岗位查询"></constructor-arg>
+            <constructor-arg index="1" value="http://219.143.235.78:8080/khglui/"></constructor-arg>
+        </bean>
+        <bean factory-bean="viewMenuEnum" factory-method="buildSingleMenuInfo">
+            <constructor-arg index="0" value="人员公示"></constructor-arg>
+            <constructor-arg index="1" value="http://219.143.235.78:8080/khglui/"></constructor-arg>
+        </bean>
+    </util:list>
+    <util:list id="hySubMenuInfos" value-type="org.usc.wechat.mp.sdk.vo.menu.SingleMenuInfo">
+        <bean factory-bean="clickMenuEnum" factory-method="buildSingleMenuInfo">
+            <constructor-arg index="0" value="省局新闻"></constructor-arg>
+            <constructor-arg index="1"
+                             value="http://zjz.mot.gov.cn/rwqss/public/findColumn.shtml?columnId=228"></constructor-arg>
+        </bean>
+        <bean factory-bean="clickMenuEnum" factory-method="buildSingleMenuInfo">
+            <constructor-arg index="0" value="政策与法规"></constructor-arg>
+            <constructor-arg index="1"
+                             value="http://zjz.mot.gov.cn/rwqss/public/findColumn.shtml?columnId=228"></constructor-arg>
+        </bean>
+        <bean factory-bean="clickMenuEnum" factory-method="buildSingleMenuInfo">
+            <constructor-arg index="0" value="重点关注"></constructor-arg>
+            <constructor-arg index="1"
+                             value="http://zjz.mot.gov.cn/rwqss/public/findColumn.shtml?columnId=226"></constructor-arg>
+        </bean>
+    </util:list>
+    <util:list id="aboutSubMenuInfos" value-type="org.usc.wechat.mp.sdk.vo.menu.SingleMenuInfo">
+        <bean factory-bean="clickMenuEnum" factory-method="buildSingleMenuInfo">
+            <constructor-arg index="0" value="公告"></constructor-arg>
+            <constructor-arg index="1"
+                             value="http://zjz.mot.gov.cn/rwqss/public/findColumn.shtml?columnId=235"></constructor-arg>
+        </bean>
+        <bean factory-bean="clickMenuEnum" factory-method="buildSingleMenuInfo">
+            <constructor-arg index="0" value="公示"></constructor-arg>
+            <constructor-arg index="1"
+                             value="http://zjz.mot.gov.cn/rwqss/public/findColumn.shtml?columnId=236"></constructor-arg>
+        </bean>
+        <bean factory-bean="clickMenuEnum" factory-method="buildSingleMenuInfo">
+            <constructor-arg index="0" value="督查"></constructor-arg>
+            <constructor-arg index="1"
+                             value="http://zjz.mot.gov.cn/rwqss/public/findColumn.shtml?columnId=233"></constructor-arg>
+        </bean>
+        <bean factory-bean="clickMenuEnum" factory-method="buildSingleMenuInfo">
+            <constructor-arg index="0" value="防台防讯"></constructor-arg>
+            <constructor-arg index="1"
+                             value="http://zjz.mot.gov.cn/rwqss/public/findColumn.shtml?columnId=234"></constructor-arg>
+        </bean>
+    </util:list>
+    <util:list id="menuInfos" value-type="org.usc.wechat.mp.sdk.vo.menu.MenuInfo">
+        <bean class="org.usc.wechat.mp.sdk.vo.menu.MultiMenuInfo">
+            <constructor-arg index="0" value="信息查询"></constructor-arg>
+            <constructor-arg index="1" ref="querySubMenuInfos"></constructor-arg>
+        </bean>
+        <bean class="org.usc.wechat.mp.sdk.vo.menu.MultiMenuInfo">
+            <constructor-arg index="0" value="行业管理"></constructor-arg>
+            <constructor-arg index="1" ref="hySubMenuInfos"></constructor-arg>
+        </bean>
+        <bean class="org.usc.wechat.mp.sdk.vo.menu.MultiMenuInfo">
+            <constructor-arg index="0" value="关于"></constructor-arg>
+            <constructor-arg index="1" ref="aboutSubMenuInfos"></constructor-arg>
+        </bean>
+    </util:list>
+    <bean id="menu" class="org.usc.wechat.mp.sdk.vo.menu.Menu">
+        <constructor-arg index="0" ref="menuInfos"></constructor-arg>
+    </bean>
+
+</beans>
