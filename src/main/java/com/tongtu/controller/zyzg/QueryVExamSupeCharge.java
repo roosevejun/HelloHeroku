@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @版本：V
  */
 @Controller
-@RequestMapping("/publics/examSupeCharge")
+@RequestMapping("/zyzg/examSupeCharge")
 public class QueryVExamSupeCharge {
     @RequestMapping(value = "query", method = RequestMethod.GET)
     @ResponseBody
