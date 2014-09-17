@@ -78,7 +78,7 @@
     </util:list>
     <util:list id="menuInfos" value-type="org.usc.wechat.mp.sdk.vo.menu.MenuInfo">
         <bean class="org.usc.wechat.mp.sdk.vo.menu.MultiMenuInfo">
-            <constructor-arg index="0" value="信息查询"></constructor-arg>
+            <constructor-arg index="0" value="职业资格"></constructor-arg>
             <constructor-arg index="1" ref="querySubMenuInfos"></constructor-arg>
         </bean>
         <bean class="org.usc.wechat.mp.sdk.vo.menu.MultiMenuInfo">
