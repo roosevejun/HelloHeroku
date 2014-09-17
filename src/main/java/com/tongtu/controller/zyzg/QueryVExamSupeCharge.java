@@ -1,4 +1,4 @@
-package com.tongtu.controller.publics;
+package com.tongtu.controller.zyzg;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
