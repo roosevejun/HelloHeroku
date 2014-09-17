@@ -15,10 +15,10 @@
     <util:constant id="clickMenuEnum" static-field="org.usc.wechat.mp.sdk.vo.menu.MenuType.CLICK"/>
     <util:constant id="viewMenuEnum" static-field="org.usc.wechat.mp.sdk.vo.menu.MenuType.VIEW"/>
     <util:list id="querySubMenuInfos" value-type="org.usc.wechat.mp.sdk.vo.menu.SingleMenuInfo">
-        <bean factory-bean="clickMenuEnum" factory-method="buildSingleMenuInfo">
+        <bean factory-bean="viewMenuEnum" factory-method="buildSingleMenuInfo">
             <constructor-arg index="0" value="成绩查询"></constructor-arg>
             <constructor-arg index="1"
-                             value="http://zjz.mot.gov.cn/rwqss/public/queryVExamSupeChargeListInit.shtml"></constructor-arg>
+                             value="http://qasmsoh.herokuapp.com/publics/examSupeCharge/query.do"></constructor-arg>
         </bean>
         <bean factory-bean="clickMenuEnum" factory-method="buildSingleMenuInfo">
             <constructor-arg index="0" value="项目查询"></constructor-arg>
