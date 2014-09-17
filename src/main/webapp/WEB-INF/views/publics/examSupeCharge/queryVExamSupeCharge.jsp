@@ -78,6 +78,16 @@
         <button type="submit" class="btn btn-lg btn-primary btn-block">查 询</button>
         <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
         <a href="${contextPath}/admin/listPeople">a${pageContext.request.contextPath} bGo to People List</a>
+        <c:choose>
+            <c:when test='${pageContext.request.contextPath eq "/" }'>
+                <c:set var="root" value="/" />
+            </c:when>
+            <c:otherwise>
+                <c:set var="root" value="${pageContext.request.contextPath }/" />
+            </c:otherwise>
+        </c:choose>
+        <c:set var="resources" value="${root}resources" />
+        resources= ${resources} root =${root}
     </form>
 
 </div>
