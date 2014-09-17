@@ -89,7 +89,7 @@
         </c:choose>
         <c:set var="resources" value="${root}resources" />
         resources= ${resources} root =${root}
-        <spring:url value="/something" var="somethingurl" htmlEscape="true"/>
+        <spring:url value="something" var="somethingurl" htmlEscape="true"/>
         <a href="${somethingurl}">...</a>
     </form>
 
