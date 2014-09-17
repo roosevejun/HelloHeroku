@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,6 +89,8 @@
         </c:choose>
         <c:set var="resources" value="${root}resources" />
         resources= ${resources} root =${root}
+        <spring:url value="/something" var="somethingurl" htmlEscape="true"/>
+        <a href="${somethingurl}">...</a>
     </form>
 
 </div>
