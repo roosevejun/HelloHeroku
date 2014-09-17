@@ -7,10 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>监理考试成绩查询</title>
+    <c:choose>
+        <c:when test='${pageContext.request.contextPath eq "/" }'>
+            <c:set var="root" value="/" />
+        </c:when>
+        <c:otherwise>
+            <c:set var="root" value="${pageContext.request.contextPath }/" />
+        </c:otherwise>
+    </c:choose>
+    <c:set var="resources" value="${root}resources" />
     <style type="text/css">
-        <c:set var="root" value="${pageContext.request.contextPath}"/>
-        @import url("<c:url value='${root}/resources/bootstrap-3.2.0/css/bootstrap.min.css' />");
-        @import url("<c:url value='${root}/resources/bootstrap-3.2.0/css/bootstrap-theme.min.css' />");
+      @import url("<c:url value='${resources}/bootstrap-3.2.0/css/bootstrap.min.css' />");
+        @import url("<c:url value='${resources}/bootstrap-3.2.0/css/bootstrap-theme.min.css' />");
 
         body {
             margin-bottom: 0px;
@@ -54,8 +62,8 @@
             margin-top: 10px;
         }
     </style>
-    <script src="<c:url value='${root}/resources/jquery/jquery.min.js' />"></script>
-    <script src="<c:url value='${root}/resources/bootstrap-3.2.0/js/bootstrap.min.js' />"></script>
+    <script src="<c:url value='${resources}/jquery/jquery.min.js' />"></script>
+    <script src="<c:url value='${resources}/bootstrap-3.2.0/js/bootstrap.min.js' />"></script>
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
