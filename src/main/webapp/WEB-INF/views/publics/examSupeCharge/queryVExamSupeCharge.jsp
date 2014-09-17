@@ -78,7 +78,7 @@
         <input type="text" required="" placeholder="准考证号" class="form-control">
         <button type="submit" class="btn btn-lg btn-primary btn-block">查 询</button>
     </form>
-
+    <a href
 </div>
 </body>
 </html>
