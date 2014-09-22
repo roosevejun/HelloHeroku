@@ -40,13 +40,16 @@ public class QueryForProj {
 
     @RequestMapping(value = "queryRes", method = RequestMethod.POST, produces = MediaType.TEXT_HTML_VALUE)
     @ResponseBody
-    public ModelAndView queryexamSupeChargeRes(@RequestParam("name") String name, @RequestParam("idCard") String idCard, @RequestParam("examId") String examId) {
-        String url = "http://zjz.mot.gov.cn/rwqss/public/queryVExamSupeChargeList.shtml";
+    public ModelAndView queryexamSupeChargeRes(@RequestParam("AREANO") String AREANO, @RequestParam("INDUSTRYNO") String INDUSTRYNO, @RequestParam("LEVELID") String LEVELID, @RequestParam("PROJECTNAME") String PROJECTNAME, @RequestParam("RANKID") String RANKID, @RequestParam("ciphert") String ciphert) {
+        String url = "http://zjz.mot.gov.cn/rwqss/proj/listProjectView.shtml";
         MobileInformationPconline mobileInformationRegex = new MobileInformationPconline();
         Map<String, String> parameter = new HashMap<String, String>();
-        parameter.put("name", name);
-        parameter.put("idCard", idCard);
-        parameter.put("examId", examId);
+        parameter.put("AREANO", AREANO);
+        parameter.put("INDUSTRYNO", INDUSTRYNO);
+        parameter.put("LEVELID", LEVELID);
+        parameter.put("PROJECTNAME", PROJECTNAME);
+        parameter.put("RANKID", RANKID);
+        parameter.put("ciphert", ciphert);
         String html = null;
         try {
             html = mobileInformationRegex.getHtmlContent(url, parameter, "utf-8");
