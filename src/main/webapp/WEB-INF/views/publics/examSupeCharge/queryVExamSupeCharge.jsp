@@ -63,7 +63,21 @@
     <![endif]-->
     <script type="text/javascript">
         $(function () {
-
+            $("#doQuery").click(function(){
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url:"<c:url value="/zyzg/examSupeCharge/queryRes.do"/>",
+                    data:$('#supeComSearchForm').serialize(),// 你的formid
+                    async: false,
+                    error: function(request) {
+                        alert("Connection error");
+                    },
+                    success: function(data) {
+                        $("#queryRes").html(data);
+                    }
+                });
+            });
         });
 
     </script>
@@ -71,13 +85,17 @@
 </head>
 <body>
 <div class="container">
-    <form role="form" class="form-signin" name="supeComSearchForm" method="post" action="">
+    <form role="form" class="form-signin" name="supeComSearchForm" id="supeComSearchForm" action="">
         <h2 class="form-signin-heading">监理考试成绩查询</h2>
         <input type="text" autofocus="" id="name" name="name" required="" placeholder="姓 名" class="form-control">
         <input type="text" required="" id='idCard' name="idCard" placeholder="证件号码" class="form-control">
         <input type="text" required=""  id="examId" name="examId"placeholder="准考证号" class="form-control">
-        <button type="submit"  id="doQuery" class="btn btn-lg btn-primary btn-block">查 询</button>
+        <button type="button"  id="doQuery" class="btn btn-lg btn-primary btn-block">查 询</button>
     </form>
 </div>
+<div class="container" id="queryRes">
+
+</div>
+
 </body>
 </html>
