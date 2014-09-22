@@ -72,11 +72,11 @@
 <body>
 <div class="container">
     <form role="form" class="form-signin" name="supeComSearchForm" method="post" action="">
-        <h2 class="form-signin-heading">${resources}监理考试成绩查询</h2>
-        <input type="text" autofocus="" required="" placeholder="姓 名" class="form-control">
-        <input type="text" required="" placeholder="证件号码" class="form-control">
-        <input type="text" required="" placeholder="准考证号" class="form-control">
-        <button type="submit" class="btn btn-lg btn-primary btn-block">查 询</button>
+        <h2 class="form-signin-heading">监理考试成绩查询</h2>
+        <input type="text" autofocus="" id="name" name="name" required="" placeholder="姓 名" class="form-control">
+        <input type="text" required="" id='idCard' name="idCard" placeholder="证件号码" class="form-control">
+        <input type="text" required=""  id="examId" name="examId"placeholder="准考证号" class="form-control">
+        <button type="submit"  id="doQuery" class="btn btn-lg btn-primary btn-block">查 询</button>
     </form>
 </div>
 </body>
