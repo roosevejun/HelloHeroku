@@ -20,9 +20,9 @@
             <constructor-arg index="1"
                              value="http://qasmsoh.herokuapp.com/zyzg/examSupeCharge/query.do"></constructor-arg>
         </bean>
-        <bean factory-bean="clickMenuEnum" factory-method="buildSingleMenuInfo">
+        <bean factory-bean="viewMenuEnum" factory-method="buildSingleMenuInfo">
             <constructor-arg index="0" value="项目查询"></constructor-arg>
-            <constructor-arg index="1" value="http://zjz.mot.gov.cn/rwqss/proj/projectQuery.shtml"></constructor-arg>
+            <constructor-arg index="1" value="http://qasmsoh.herokuapp.com/zyzg/proj/query.do"></constructor-arg>
         </bean>
         <bean factory-bean="clickMenuEnum" factory-method="buildSingleMenuInfo">
             <constructor-arg index="0" value="注册证书查询"></constructor-arg>

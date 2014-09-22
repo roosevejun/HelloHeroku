@@ -51,7 +51,7 @@
             border-bottom-left-radius: 0;
         }
 
-        .form-signin button[type="submit"] {
+        .form-signin button[type="button"] {
             margin-top: 10px;
         }
     </style>
