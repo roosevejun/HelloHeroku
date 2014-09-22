@@ -140,6 +140,7 @@
                 <option value="710000">长江航务局</option>
                 <option value="720000">新疆建设兵团</option>
                 <option value="730000">部质监局评价虚拟地区</option>
+
             </optgroup>
         </select>
         <select id="LEVELID" name="LEVELID" class="form-control selectpicker" title="项目类型">

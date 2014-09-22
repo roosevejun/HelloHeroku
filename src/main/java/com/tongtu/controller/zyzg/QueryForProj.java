@@ -34,7 +34,7 @@ public class QueryForProj {
     @ResponseBody
     public ModelAndView queryexamSupeCharge() {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("publics/SearchForProj/queryForProj");
+        mav.setViewName("publics/SearchForProj/QueryForProj");
         return mav;
     }
 
