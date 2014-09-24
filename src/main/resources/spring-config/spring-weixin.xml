@@ -24,9 +24,9 @@
             <constructor-arg index="0" value="项目查询"></constructor-arg>
             <constructor-arg index="1" value="http://qasmsoh.herokuapp.com/zyzg/proj/query.do"></constructor-arg>
         </bean>
-        <bean factory-bean="clickMenuEnum" factory-method="buildSingleMenuInfo">
+        <bean factory-bean="viewMenuEnum" factory-method="buildSingleMenuInfo">
             <constructor-arg index="0" value="注册证书查询"></constructor-arg>
-            <constructor-arg index="1" value="http://219.143.235.78:8080/khglui/"></constructor-arg>
+            <constructor-arg index="1" value="http://qasmsoh.herokuapp.com/khglui/people/query.do"></constructor-arg>
         </bean>
         <bean factory-bean="viewMenuEnum" factory-method="buildSingleMenuInfo">
             <constructor-arg index="0" value="岗位查询"></constructor-arg>
@@ -93,5 +93,16 @@
     <bean id="menu" class="org.usc.wechat.mp.sdk.vo.menu.Menu">
         <constructor-arg index="0" ref="menuInfos"></constructor-arg>
     </bean>
+    <bean id="requestConfigBuilder" class="org.apache.http.client.config.RequestConfig" factory-method="custom">
+        <property name="socketTimeout" value="10000" />
+        <property name="connectTimeout" value="5000" />
+    </bean>
 
+    <bean id="requestConfig" factory-bean="requestConfigBuilder" factory-method="build" />
+
+    <bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder" factory-method="create">
+        <property name="defaultRequestConfig" ref="requestConfig" />
+    </bean>
+
+    <bean id="httpClient" factory-bean="httpClientBuilder" factory-method="build" />
 </beans>

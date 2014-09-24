@@ -5,6 +5,7 @@ import org.usc.wechat.mp.sdk.util.platform.MenuUtil;
 import org.usc.wechat.mp.sdk.vo.menu.Menu;
 import org.usc.wechat.mp.sdk.vo.token.License;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -24,9 +25,15 @@ public class WeiXinMenuTask {
     private Menu menu;
     @Inject
     private License license;
+
+    @PostConstruct
+    public void init() {
+        MenuUtil.createMenu(license, menu);
+    }
+
     //@Scheduled(fixedDelay=1000)  //第一种方式
     //fixedDelay延时多少毫秒，多少毫秒执行一次
-    @Scheduled(cron="0 0 * * * *")
+    @Scheduled(cron = "0 0 * * * *")
      /*
         1 Seconds (0-59)
         2 Minutes (0-59)
@@ -47,7 +54,7 @@ public class WeiXinMenuTask {
         2011-09-07 09:25:00
         2011-09-07 09:26:00
      */
-    public void reflashMenu(){
+    public void reflashMenu() {
         MenuUtil.createMenu(license, menu);
     }
 }
