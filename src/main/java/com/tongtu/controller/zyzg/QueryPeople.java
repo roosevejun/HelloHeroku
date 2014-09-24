@@ -75,7 +75,7 @@ public class QueryPeople extends BaseController {
                 businessLogger.info("操作失败！");
             }
         }
-        httpClient.close();
+//        httpClient.close();
         return null;
     }
 }
