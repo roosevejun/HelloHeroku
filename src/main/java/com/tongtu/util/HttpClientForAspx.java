@@ -95,7 +95,7 @@ public class HttpClientForAspx {
         qparams.add(
                 new BasicNameValuePair(VIEWSTATE, params.get(VIEWSTATE)));
         //包含目标按钮则执行操作
-        if (getKeyByValue(btnValue) != null) {
+//        if (getKeyByValue(btnValue) != null) {
             qparams.add(new BasicNameValuePair(getKeyByValue(btnValue), btnValue));
             post.setEntity(new UrlEncodedFormEntity(qparams, charset));
             HttpResponse response = client.execute(post);
@@ -109,8 +109,8 @@ public class HttpClientForAspx {
 //                businessLogger.info("content: {}" + content);
                 return true;
             }
-        }
-        businessLogger.info("not find button :[{}]", btnValue);
+//        }
+//        businessLogger.info("not find button :[{}]", btnValue);
         post.abort();
         return false;
     }
