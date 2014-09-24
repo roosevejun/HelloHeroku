@@ -14,7 +14,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -110,7 +109,7 @@ public class HttpClientForAspx {
 
     private  String getHTMLContent(InputStream in) throws UnsupportedEncodingException {
         StringBuffer sb = new StringBuffer();
-        BufferedReader br = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
+        BufferedReader br = new BufferedReader(new InputStreamReader(in, charset));
         try {
             String line = null;
             while ((line = br.readLine()) != null) {
