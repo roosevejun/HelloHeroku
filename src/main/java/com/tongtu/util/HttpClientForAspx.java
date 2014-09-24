@@ -110,7 +110,7 @@ public class HttpClientForAspx {
                 return true;
             }
         }
-        businessLogger.info("没有发现按钮:[{}]", btnValue);
+        businessLogger.info("not find button :[{}]", btnValue);
         post.abort();
         return false;
     }
