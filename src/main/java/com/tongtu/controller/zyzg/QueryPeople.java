@@ -51,17 +51,16 @@ public class QueryPeople extends BaseController {
     @ResponseBody
     public ModelAndView queryexamSupeChargeRes(@RequestParam("ctl00$ContentPlaceHolder2$txt_ZSBH") String ZSBH, @RequestParam("ctl00$ContentPlaceHolder2$txtName") String Name, @RequestParam("ctl00$ContentPlaceHolder2$txtShenFenZheng") String ShenFenZheng, @RequestParam("ctl00$ContentPlaceHolder2$txtCompanyName") String CompanyName, @RequestParam("ctl00$ContentPlaceHolder2$Ddl_ZSleiXing") String ZSleiXing, @RequestParam("ctl00$ContentPlaceHolder2$txt_FaZhengShiJian") String FaZhengShiJian, @RequestParam("ctl00$ContentPlaceHolder2$txt_YouXiaoQi") String YouXiaoQi) throws IOException {
         String postUrl = "http://219.143.235.78:8080/khglui/PeopleSeach.aspx";
-        String btnValue = "查询";
+
         List<NameValuePair> qparams = new ArrayList<NameValuePair>();
         qparams.add(new BasicNameValuePair("ctl00$ContentPlaceHolder2$txt_ZSBH", ZSBH));
-        qparams.add(new BasicNameValuePair("ctl00$ContentPlaceHolder2$btnSeach", btnValue));
         qparams.add(new BasicNameValuePair("ctl00$ContentPlaceHolder2$txtName", Name));
         qparams.add(new BasicNameValuePair("ctl00$ContentPlaceHolder2$txtShenFenZheng", ShenFenZheng));
         qparams.add(new BasicNameValuePair("ctl00$ContentPlaceHolder2$txtCompanyName", CompanyName));
         qparams.add(new BasicNameValuePair("ctl00$ContentPlaceHolder2$txt_FaZhengShiJian", FaZhengShiJian));
         qparams.add(new BasicNameValuePair("ctl00$ContentPlaceHolder2$txt_YouXiaoQi", YouXiaoQi));
         qparams.add(new BasicNameValuePair("ctl00$ContentPlaceHolder2$Ddl_ZSleiXing", ZSleiXing));
-        HttpClientForAspx httpClientForAspx = new HttpClientForAspx(StandardCharsets.UTF_8, qparams, postUrl, btnValue);
+        HttpClientForAspx httpClientForAspx = new HttpClientForAspx(StandardCharsets.UTF_8, qparams, postUrl);
         if (httpClientForAspx.loadGetPage(httpClient)) {
             if (httpClientForAspx.doPost(httpClient)) {
                 businessLogger.info("操作成功！");

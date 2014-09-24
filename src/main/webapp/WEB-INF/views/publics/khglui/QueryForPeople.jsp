@@ -129,7 +129,7 @@
         </select>
         <input type="text" autofocus="" id="ctl00_ContentPlaceHolder2_txt_FaZhengShiJian" name="ctl00$ContentPlaceHolder2$txt_FaZhengShiJian" required="" placeholder="发证时间"  class="form-control">
         <input type="text" autofocus="" id="ctl00_ContentPlaceHolder2_txt_YouXiaoQi" name="ctl00$ContentPlaceHolder2$txt_YouXiaoQi" required="" placeholder="有效时间"  class="form-control">
-        <button type="button" id="doQuery" class="btn btn-lg btn-primary btn-block">查 询</button>
+        <button type="button" id="doQuery" name="ctl00$ContentPlaceHolder2$btnSeach" class="btn btn-lg btn-primary btn-block" value="查询">查 询</button>
     </form>
 </div>
 <div class="container" id="queryRes">

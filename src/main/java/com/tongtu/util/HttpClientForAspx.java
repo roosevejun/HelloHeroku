@@ -12,11 +12,9 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,7 +36,6 @@ public class HttpClientForAspx {
     private List<NameValuePair> qparams = null;
     private static Map<String, String> params = null;
     private Charset charset;
-    private String btnValue;
     private String postUrl;
     private String content;
     //.Net隐藏域
@@ -47,11 +44,10 @@ public class HttpClientForAspx {
     private final static String VIEWSTATE = "__VIEWSTATE";
     private static Logger businessLogger = LogManager.getLogger("info");
 
-    public HttpClientForAspx(Charset charset, List<NameValuePair> params, String postUrl, String btnValue) {
+    public HttpClientForAspx(Charset charset, List<NameValuePair> params, String postUrl) {
         this.charset = charset;
         this.qparams = params;
         this.postUrl = postUrl;
-        this.btnValue = btnValue;
     }
 
     public String getContent() {
@@ -84,9 +80,7 @@ public class HttpClientForAspx {
      */
     public boolean doPost(HttpClient client)
             throws IOException {
-
         StringBuffer sb = new StringBuffer();
-        String acceptEncoding = "";
         HttpPost post = new HttpPost(postUrl);
         qparams.add(
                 new BasicNameValuePair(PREVIOUSPAGE, params.get(PREVIOUSPAGE)));
@@ -96,7 +90,6 @@ public class HttpClientForAspx {
                 new BasicNameValuePair(VIEWSTATE, params.get(VIEWSTATE)));
         //包含目标按钮则执行操作
 //        if (getKeyByValue(btnValue) != null) {
-            qparams.add(new BasicNameValuePair(getKeyByValue(btnValue), btnValue));
             post.setEntity(new UrlEncodedFormEntity(qparams, charset));
             HttpResponse response = client.execute(post);
             int statusCode = response.getStatusLine().getStatusCode();
@@ -115,9 +108,9 @@ public class HttpClientForAspx {
         return false;
     }
 
-    private static String getHTMLContent(InputStream in) {
+    private  String getHTMLContent(InputStream in) throws UnsupportedEncodingException {
         StringBuffer sb = new StringBuffer();
-        BufferedReader br = new BufferedReader(new InputStreamReader(in));
+        BufferedReader br = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
         try {
             String line = null;
             while ((line = br.readLine()) != null) {
@@ -158,18 +151,6 @@ public class HttpClientForAspx {
             }
         }
         return parameters;
-    }
-
-    private static String getKeyByValue(String value) {
-        for (String s : params.keySet()) {
-            if (params.get(s) == null) {
-                continue;
-            }
-            if (params.get(s).equals(value)) {
-                return s;
-            }
-        }
-        return null;
     }
 
 }
