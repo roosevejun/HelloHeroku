@@ -32,9 +32,9 @@
             <constructor-arg index="0" value="岗位查询"></constructor-arg>
             <constructor-arg index="1" value="http://qasmsoh.herokuapp.com/khglui/gwdj/query.do"></constructor-arg>
         </bean>
-        <bean factory-bean="viewMenuEnum" factory-method="buildSingleMenuInfo">
+        <bean factory-bean="clickMenuEnum" factory-method="buildSingleMenuInfo">
             <constructor-arg index="0" value="人员公示"></constructor-arg>
-            <constructor-arg index="1" value="http://219.143.235.78:8080/khglui/"></constructor-arg>
+            <constructor-arg index="1" value="BUTTON_CLICK_PUBLICITY"></constructor-arg>
         </bean>
     </util:list>
     <util:list id="hySubMenuInfos" value-type="org.usc.wechat.mp.sdk.vo.menu.SingleMenuInfo">
